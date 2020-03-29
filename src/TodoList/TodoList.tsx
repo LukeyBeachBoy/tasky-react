@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 class TodoList extends React.Component {
     constructor(props: any) {
         super(props);
-        this.state = {todos: this.todos};
+        this.state = {todos: this.props.children};
     }
 
     todos = [
@@ -28,7 +28,7 @@ class TodoList extends React.Component {
             return (
                 <ul>
                     {renderedTodos.map((todo) => (
-                        <li key={todo.id} onClick={() =>
+                        <li className="rounded-box" key={todo.id} onClick={() =>
                             this.changeTodo(todo.id, !done)}>
                             <FontAwesomeIcon icon={done ? faCheckSquare : faSquare}/>
                             <span>{todo.label}</span>
